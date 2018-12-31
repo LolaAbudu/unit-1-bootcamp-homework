@@ -5,7 +5,6 @@ public class ClassesAndObjects {
 
     Person john = new Person("John");
 
-
     Cat garfield = new Cat("Garfield");
     garfield.setFavoriteFood("Lasagna");
     garfield.setAge(4);
@@ -24,7 +23,7 @@ public class ClassesAndObjects {
 
     adoption(garfield,john);
 
-    System.out.println(isFree(pinkPanther));
+    System.out.println(isFree(catwoman));
 
     System.out.println(isSibling(garfield,pinkPanther));
   }
@@ -44,17 +43,15 @@ public class ClassesAndObjects {
     cat2.setFavoriteFood(favFood);
   }
 
-  //TODO cant make this return the cat name
-  public static Cat makeKitten(Cat cat1, Cat cat2){
+  public static String makeKitten(Cat cat1, Cat cat2){
     Cat newCat = new Cat();
     newCat.setName(cat1.getName() + cat2.getName());
     newCat.setAge(0);
-    return newCat;
-   // a Cat named "GarfieldCatwoman" with age 0
+    String newCatString ="a " + newCat.getClass().getSimpleName() + " named \"" + newCat.getName() + "\" with age " + newCat.getAge();
+    return newCatString;
   }
 
   public static void adoption(Cat cat1, Person person1){
-
     if(cat1.getName().equals("Catwoman")){
       System.out.println("Catwoman will never be anyone's pet!");
     }else {
