@@ -2,40 +2,70 @@
 public class Conditionals {
 
   public static void main (String args[]) {
+    Person john = new Person();
+    john.setCity("London");
+    john.setName("John");
+    Person susana = new Person();
+    susana.setCity("Paris");
+    susana.setName("Susana");
+
+
+    System.out.println(isOdd(11));
+
+    System.out.println(isMultipleOfThree(9));
+
+    System.out.println(isOddAndIsMultipleOfThree(9));
+
+    System.out.println(isOddAndIsMultipleOfThree2(12));
+
+    fizzMultipleofThree(18);
+
+    System.out.println(fromLondon(susana));
+
+    nameLongerThan5Characters(john);
+
+    System.out.println(cigarParty(30, true));
+
+    System.out.println(caughtSpeeding(65, true));
+
+    System.out.println(alarmClock(5,false));
+
+    System.out.println(lotteryTicket(1,2,3));
+
+    System.out.println(blackjack(18,20));
+
     System.out.println(evenlySpaced(5,6,4));
-
-
   }
 
-  public static boolean isOdd(int n){
+  private static boolean isOdd(int n){
     if(n % 2 != 0){
       return true;
     }
     return false;
   }
 
-  public static boolean isMultipleOfThree(int n){
+  private static boolean isMultipleOfThree(int n){
     if(n % 3 == 0){
       return true;
     }
     return false;
   }
 
-  public static boolean isOddAndIsMultipleOfThree(int n){
+  private static boolean isOddAndIsMultipleOfThree(int n){
     if(n % 2 != 0 && n % 3 == 0){
       return true;
     }
     return false;
   }
 
-  public static boolean isOddAndIsMultipleOfThree2(int n){
+  private static boolean isOddAndIsMultipleOfThree2(int n){
     if(isOdd(n) && isMultipleOfThree(n)){
       return true;
     }
     return false;
   }
 
-  public static void fizzMultipleofThree(int n){
+  private static void fizzMultipleofThree(int n){
     if(n % 3 == 0){
       System.out.println("Fizz");
     }else{
@@ -43,14 +73,14 @@ public class Conditionals {
     }
   }
 
-  public static boolean fromLondon(Person person){
+  private static boolean fromLondon(Person person){
     if(person.getCity().equals("London")){
       return true;
     }
     return false;
   }
 
-  public static void nameLongerThan5Characters(Person person){
+  private static void nameLongerThan5Characters(Person person){
     if(person.getName().length() > 5){
       System.out.println(person.getName());
     }else{
@@ -58,26 +88,29 @@ public class Conditionals {
     }
   }
 
-  public static boolean cigarParty(int cigarNum, boolean isWeekend){
-    if(cigarNum >= 40 && cigarNum <= 60 && isWeekend){
+  private static boolean cigarParty(int cigarNum, boolean isWeekend){
+    if(isWeekend && cigarNum >= 40){
+      return true;
+    }
+    else if(cigarNum >= 40 && cigarNum <= 60){
       return true;
     }
     return false;
   }
 
-  public static int caughtSpeeding(int speedNum, boolean isBirthday){
-    int ticket = 6;
+  private static int caughtSpeeding(int speedNum, boolean isBirthday){
+    int ticket;
     if(speedNum <= 60 && !isBirthday || speedNum <= 65 && isBirthday){
       ticket = 0;
-    }else if(speedNum > 60 && speedNum <= 80 && !isBirthday || speedNum > 65 && speedNum <= 85 && isBirthday){
+    }else if(speedNum <= 80 && !isBirthday || speedNum <= 85 && isBirthday){
       ticket = 1;
-    }else if(speedNum >= 81 &&  !isBirthday || speedNum >= 86 &&  isBirthday){
+    }else {
       ticket = 2;
     }
     return ticket;
   }
 
-  public static String alarmClock(int dayOfWeek, boolean onVaca){
+  private static String alarmClock(int dayOfWeek, boolean onVaca){
 
     String alarmRing = "off";
     switch (dayOfWeek){
@@ -101,19 +134,20 @@ public class Conditionals {
     return alarmRing;
   }
 
-  public static int lotteryTicket(int a, int b,int c){
-    int result = 50;
-    if(a != b && a != c && b != c){
-      result = 0;
-    }else if(a == b && a == c){
+  private static int lotteryTicket(int a, int b,int c){
+    int result;
+    if(a == b && a == c){
       result = 20;
     } else if(a == b || a == c || b == c){
       result = 10;
+    }else {
+      result = 0;
     }
     return result;
   }
 
-  public static int blackjack(int value1, int value2){
+  //TODO try making this better
+  private static int blackjack(int value1, int value2){
     int result = 0;
     if(value1 > 21 && value2 > 21){
       return result;
@@ -121,17 +155,21 @@ public class Conditionals {
       return value1;
     } else if(value2 < 22 && value2 > value1){
       return value2;
+    } else if (value1 > 21){
+      return value2;
+    } else if (value2 > 21){
+      return value1;
     }
     return result;
   }
 
-  public static boolean evenlySpaced(int a, int b, int c){
+  private static boolean evenlySpaced(int a, int b, int c){
     int aMinusB = a-b;
     int bMinusC = b-c;
     int aMinusC = a-c;
     int cMinusB = c-b;
     int cMinusA = c-a;
-    if((aMinusB == bMinusC) || (aMinusC ==cMinusB) || (aMinusB == cMinusA)){
+    if((aMinusB == bMinusC) || (aMinusC == cMinusB) || (aMinusB == cMinusA)){
       return true;
     }
     return false;

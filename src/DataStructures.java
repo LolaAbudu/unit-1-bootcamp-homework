@@ -155,7 +155,6 @@ public class DataStructures {
     }
 }
 
-//TODO check them all again, think i did them wrong
 //TODO ask how to check those method inside the main that require an arraylist
 //DONE 1. Create an ArrayList of 5 Cats.
 //DONE 2. Use a loop to print the contents of each object in the ArrayList.
@@ -172,5 +171,5 @@ public class DataStructures {
 //  the given length are omitted.
 // DONE 8. Say that a "clump" in an ArrayList is a series of 2 or more adjacent elements of the same value. Write a method that returns the
 //  number of clumps in the given ArrayList.
-//9. Write a method that takes a String sentence, breaks it up into an ArrayList of Strings (one word per ArrayList element), and
+// DONE 9. Write a method that takes a String sentence, breaks it up into an ArrayList of Strings (one word per ArrayList element), and
 //  prints out the words in alphabetical order.

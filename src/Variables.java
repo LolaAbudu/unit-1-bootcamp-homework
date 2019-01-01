@@ -3,9 +3,9 @@ public class Variables {
 
   public static void main (String args[]) {
 
-
   }
 
+  //TODO ask if this is how you write a method signature
   public boolean isOdd(int number){
     return true;
   }

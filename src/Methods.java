@@ -8,35 +8,33 @@ public class Methods {
 
     System.out.println(toLowerCase("MONEY"));
 
-    System.out.println(isMultiple(25, 4));
+    System.out.println(isMultiple(5, 30));
 
     prettyInteger(5);
 
-    System.out.println(random(5,1000));
+    System.out.println(random(9,1000));
   }
 
-  public static int calculateSquare(int number){
+  private static int calculateSquare(int number){
     return number * number;
   }
 
-  public static double calculateSquareRoot(int number){
-    double squareRoot = Math.sqrt(number);
-    return squareRoot;
+  private static double calculateSquareRoot(int number){
+    return Math.sqrt(number);
   }
 
-  public static String toLowerCase(String word){
+  private static String toLowerCase(String word){
     return word.toLowerCase();
   }
 
-  //TODO ITS NOT WORKING
-  public static boolean isMultiple(int number1, int number2){
+  private static boolean isMultiple(int number1, int number2){
     if(number2 % number1 == 0){
       return true;
     }
     return false;
   }
 
-  public static void prettyInteger(int number){
+  private static void prettyInteger(int number){
     for (int i=0; i<number; i++){
       System.out.print("*");
     }
@@ -46,8 +44,8 @@ public class Methods {
     }
   }
 
-  public static int random(int number1, int number2){
-    int randomNumber = (int) (Math.random() * (number1 - number2)) + number2;
+  private static int random(int number1, int number2){
+    int randomNumber = (int) (Math.random() * ((number1-1) - number2)) + number2;
     System.out.println("");
     return randomNumber;
   }
