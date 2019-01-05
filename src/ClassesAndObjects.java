@@ -1,78 +1,79 @@
 
 public class ClassesAndObjects {
 
-  public static void main (String args[]) {
+    public static void main(String args[]) {
+        Person john = new Person("John");
 
-    Person john = new Person("John");
+        Cat garfield = new Cat("Garfield");
+        garfield.setFavoriteFood("Lasagna");
+        garfield.setAge(4);
+        garfield.setOwner(john);
 
-    Cat garfield = new Cat("Garfield");
-    garfield.setFavoriteFood("Lasagna");
-    garfield.setAge(4);
-    garfield.setOwner(john);
-    Cat pinkPanther = new Cat("Pink Panther");
-    pinkPanther.setFavoriteFood("Pizza");
-    pinkPanther.setAge(10);
-    pinkPanther.setOwner(john);
-    Cat catwoman = new Cat("Catwoman");
-    catwoman.setFavoriteFood("Hamburger");
-    catwoman.setAge(15);
+        Cat pinkPanther = new Cat("Pink Panther");
+        pinkPanther.setFavoriteFood("Pizza");
+        pinkPanther.setAge(10);
+        pinkPanther.setOwner(john);
 
-    System.out.println(isOlder(garfield, pinkPanther));
+        Cat catwoman = new Cat("Catwoman");
+        catwoman.setFavoriteFood("Hamburger");
+        catwoman.setAge(15);
 
-    System.out.println(makeKitten(garfield,catwoman));
+        System.out.println(isOlder(garfield, pinkPanther));
 
-    adoption(garfield,john);
+        System.out.println(makeKitten(garfield, catwoman));
 
-    System.out.println(isFree(catwoman));
+        adoption(garfield, john);
 
-    System.out.println(isSibling(garfield,pinkPanther));
-  }
+        System.out.println(isFree(catwoman));
 
-  public static boolean isOlder(Cat cat1, Cat cat2){
-    int first = cat1.getAge();
-    int second = cat2.getAge();
-    if(first > second){
-      return true;
+        System.out.println(isSibling(garfield, pinkPanther));
     }
-    return false;
-  }
 
-  public static void makeBestFriends(Cat cat1, Cat cat2){
-    String favFood = "Pizza";
-    cat1.setFavoriteFood(favFood);
-    cat2.setFavoriteFood(favFood);
-  }
-
-  public static String makeKitten(Cat cat1, Cat cat2){
-    Cat newCat = new Cat();
-    newCat.setName(cat1.getName() + cat2.getName());
-    newCat.setAge(0);
-    String newCatString ="a " + newCat.getClass().getSimpleName() + " named \"" + newCat.getName() + "\" with age " + newCat.getAge();
-    return newCatString;
-  }
-
-  public static void adoption(Cat cat1, Person person1){
-    if(cat1.getName().equals("Catwoman")){
-      System.out.println("Catwoman will never be anyone's pet!");
-    }else {
-      cat1.setOwner(person1);
-      System.out.println(person1.getName() + " is now " + cat1.getName() + " owner!");
+    public static boolean isOlder(Cat cat1, Cat cat2) {
+        int first = cat1.getAge();
+        int second = cat2.getAge();
+        if (first > second) {
+            return true;
+        }
+        return false;
     }
-  }
 
-  public static boolean isFree(Cat catName){
-    if(catName.getOwner() != null){
-      return true;
+    public static void makeBestFriends(Cat cat1, Cat cat2) {
+        String favFood = "Pizza";
+        cat1.setFavoriteFood(favFood);
+        cat2.setFavoriteFood(favFood);
     }
-    return false;
-  }
 
-  public static boolean isSibling(Cat cat1, Cat cat2){
-    if(cat1.getOwner().equals(cat2.getOwner())){
-      return true;
+    public static String makeKitten(Cat cat1, Cat cat2) {
+        Cat newCat = new Cat();
+        newCat.setName(cat1.getName() + cat2.getName());
+        newCat.setAge(0);
+        String newCatString = "a " + newCat.getClass().getSimpleName() + " named \"" + newCat.getName() + "\" with age " + newCat.getAge();
+        return newCatString;
     }
-    return false;
-  }
+
+    public static void adoption(Cat cat1, Person person1) {
+        if (cat1.getName().equals("Catwoman")) {
+            System.out.println("Catwoman will never be anyone's pet!");
+        } else {
+            cat1.setOwner(person1);
+            System.out.println(person1.getName() + " is now " + cat1.getName() + " owner!");
+        }
+    }
+
+    public static boolean isFree(Cat catName) {
+        if (catName.getOwner() != null) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isSibling(Cat cat1, Cat cat2) {
+        if (cat1.getOwner().equals(cat2.getOwner())) {
+            return true;
+        }
+        return false;
+    }
 }
 
 
@@ -106,7 +107,7 @@ public class ClassesAndObjects {
 // DONE **Bonus Challenge**
 //If the Cat's name is `Catwoman`, don't set the owner, but instead print: "Catwoman will never be anyone's pet!"
 //
-//#### 6. isFree
+//#### DONE 6. isFree
 //Write a method called `isFree` that checks whether or not a Cat has an owner.
 //ex: isFree(garfield) returns false
 //```

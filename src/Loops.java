@@ -24,7 +24,6 @@ public class Loops {
             }
         }
 
-
         for (int i = 1; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
                 System.out.println(i + "" + j + ", " + i + "+" + j + " = " + (i + j));
@@ -116,14 +115,14 @@ public class Loops {
         System.out.println("\nSum: " + sum);
     }
 
-    private static int sumNumbers(String myString){
+    private static int sumNumbers(String myString) {
         int sum = 0;
         String numbersOnly = "";
         myString = myString + " ";
-        for(int i = 0; i < myString.length(); i++){
-            if(Character.isDigit(myString.charAt(i))){
+        for (int i = 0; i < myString.length(); i++) {
+            if (Character.isDigit(myString.charAt(i))) {
                 numbersOnly = numbersOnly + myString.charAt(i);
-            } else if(!numbersOnly.equals("")){
+            } else if (!numbersOnly.equals("")) {
                 sum = sum + Integer.parseInt(numbersOnly);
                 numbersOnly = "";
             }
@@ -134,10 +133,10 @@ public class Loops {
     private static String notReplace(String myString) {
         String result = "";
         for (int i = 0; i < myString.length(); i++) {
-           // if(myString.charAt(i) == 'i' && myString.charAt(i+1) == 's'){
+            // if(myString.charAt(i) == 'i' && myString.charAt(i+1) == 's'){
             if (i - 1 >= 0 && Character.isLetter(myString.charAt(i - 1)) || i + 2 < myString.length() && Character.isLetter(myString.charAt(i + 2))) {
                 result += myString.charAt(i);
-            } else if(i + 1 < myString.length() && myString.substring(i, i + 2).equals("is")){
+            } else if (i + 1 < myString.length() && myString.substring(i, i + 2).equals("is")) {
                 result += "is not";
                 i++;
             } else {
@@ -147,24 +146,22 @@ public class Loops {
         return result;
     }
 
-    private static String wordEnds(String firstString, String wordString){
-          int firstStringLength = firstString.length();
-          int wordStringLength = wordString.length();
-          String finalString = "";
-          for (int i = 0; i < firstStringLength-wordStringLength+1; i++) {
-            String word = firstString.substring(i,i+wordStringLength);
+    private static String wordEnds(String firstString, String wordString) {
+        int firstStringLength = firstString.length();
+        int wordStringLength = wordString.length();
+        String finalString = "";
+        for (int i = 0; i < firstStringLength - wordStringLength + 1; i++) {
+            String word = firstString.substring(i, i + wordStringLength);
             if (i > 0 && word.equals(wordString))
-              finalString += firstString.substring(i-1,i);
-            if (i < firstStringLength-wordStringLength && word.equals(wordString))
-              finalString += firstString.substring(i+wordStringLength,i+wordStringLength+1);
-          }
-          return finalString;
+                finalString += firstString.substring(i - 1, i);
+            if (i < firstStringLength - wordStringLength && word.equals(wordString))
+                finalString += firstString.substring(i + wordStringLength, i + wordStringLength + 1);
+        }
+        return finalString;
     }
 
 
 }
-//16. Number Puzzle
-//Use nested for loops to generate a list of all the pairs of positive two digit numbers whose sum is 60, and whose difference is 14.
 
 // DONE 1. Write a method that prints the numbers 1 through 10 using a loop.
 // DONE 2. Write a method that prints the numbers 1 through 10 using a different kind of loop.
